@@ -1,5 +1,6 @@
 # Created by pyp2rpm-3.3.5
 %global pypi_name nox
+%define __python %{python3}
 
 Name:           python-%{pypi_name}
 Version:        2020.12.31
