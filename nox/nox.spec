@@ -27,12 +27,15 @@ Summary:        %{summary}
 
 Requires:       (python3dist(argcomplete) >= 1.9.4 with python3dist(argcomplete) < 2)
 Requires:       (python3dist(colorlog) >= 2.6.1 with python3dist(colorlog) < 5)
-Requires:       (python3dist(importlib-metadata) unless python3 > 3.8)
-Requires:       python3dist(jinja2)
+%if 0%{?python_version_nodots} < 38
+Requires:       python3dist(importlib-metadata)
+%endif
 Requires:       (python3dist(py) >= 1.4 with python3dist(py) < 2)
-Requires:       python3dist(setuptools)
-Requires:       python3dist(tox)
 Requires:       python3dist(virtualenv) >= 14
+
+Suggests:       python3dist(jinja2)
+Suggests:       python3dist(tox)
+
 %description -n python3-%{pypi_name}
 Nox - Flexible test automation for Python nox is a command-line tool that
 automates testing in multiple Python environments, similar to tox_. Unlike tox,
